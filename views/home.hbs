@@ -1,7 +1,45 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+        <style>
+        </style>
     </head>
     <body>
-        <a1>Sample Text</a1>
+        <!-- Search Bar -->
+        <div>Basic Search</div>
+        <div id="Basic">
+            <datalist id="location">
+                
+                <optgroup label="Shelves">
+                    <option>Shelf 1</option>
+                    <option>Shelf 2</option>
+                    <option>Shelf 3</option>
+                    <option>Shelf 4</option>
+                    <option>Shelf 5</option>
+                    <option>etc.</option>
+                </optgroup>
+            </datalist>
+            <input  autoComplete="on" list="location"/> 
+        </div>
+        
+        <!-- Advanced Search -->
+        <div>Advanced Search</div>
+        <div id="Advanced">
+            <datalist id="info">
+                <optgroup label="Floors">
+                    <option>6th Floor</option>
+                    <option>7th Floor</option>
+                    <option>8th Floor</option>
+                    <option>9th Floor</option>
+                </optgroup>
+                <optgroup label="Subjects">
+                    <option>History</option>
+                    <option>Science</option>
+                    <option>Arts</option>
+                </optgroup>
+            </datalist>
+            <input  autoComplete="on" list="info"/> 
+        </div>
     </body>
 </html>
