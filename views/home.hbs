@@ -1,45 +1,192 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
         <style>
+            html{
+                width: 100%;
+                height: 250px;
+            }
+            #LogoTab{
+                height: 100px;
+                width: 100%;
+                font-size: 30px;
+                font-family: times new roman;
+                display: inline-block;
+                vertical-align: middle;
+                text-align: center;
+                border-color: green;
+                border-style:solid;
+                background-color: darkseagreen;
+            }
+            #TopTab{
+                background-color: antiquewhite;
+                height: 100px;
+                width: 100%;
+                display: inline-flex;
+                text-align: center;
+            }
+            #MainArea{
+                margin-top: 5px;
+                width: 100%;
+                height: 580px;
+                display: inline-flex;
+            }
+            #ButtonArea{
+                width: 170px;
+                height: inherit;
+            }
+            #ButtonCSS{
+                background-color: #4CAF50; /* Green */
+                border: none;
+                color: white;
+                width: inherit;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+            #MapArea{
+                background-color: cadetblue;
+                width: 750px;
+                margin-left: 50px;
+                height: inherit;
+                border-color: green;
+                border-style:solid;
+                background-color: darkseagreen;
+            }
+            #SearchArea{
+                width: 100%;
+                height: 50px;
+                display: inline-flex;
+                text-align: center;
+                vertical-align: middle;
+                line-height: 50px;
+            }
+            #List{
+                margin-left: 30px;
+            }
+            #FilterCSS{
+                border: none;
+                background-color: green;
+                padding: 5px 100px;
+                color: white;
+                font-size: 20px;
+                margin-top: 10px;
+            }
+            #RightTabDisplay{
+                width: 284px;   
+                height: inherit;
+                margin-left: 30px;
+            }
+            #SearchArea{
+                width: inherit;
+                height: 170px;
+                display: block;
+                border-color: green;
+                border-style:solid;
+                background-color: darkseagreen;
+            }
+            #DirectoryDisplay{
+                height: 400px;
+                width: inherit;
+                margin-top: 5px;
+                border-color: green;
+                border-style:solid;
+                background-color: darkseagreen;
+            }
+            table, td,tr{
+                text-align: center;
+                width: inherit;
+                border: 1px solid black;
+            }
         </style>
     </head>
+    
     <body>
-        <!-- Search Bar -->
-        <div>Basic Search</div>
-        <div id="Basic">
-            <datalist id="location">
-                
-                <optgroup label="Shelves">
-                    <option>Shelf 1</option>
-                    <option>Shelf 2</option>
-                    <option>Shelf 3</option>
-                    <option>Shelf 4</option>
-                    <option>Shelf 5</option>
-                    <option>etc.</option>
-                </optgroup>
-            </datalist>
-            <input  autoComplete="on" list="location"/> 
+        <div id="LogoTab">
+            
+            <img src="1200px-De_La_Salle_University_Seal.svg.png" style="height:100%;text-align: center; display: inline-block;float: left;">
+            <p2 style="float: left;vertical-align: middle; line-height: 100px; margin-left: 10px; font-size: 30px;">THE LEARNING COMMONS</p2>
+            
         </div>
-        
-        <!-- Advanced Search -->
-        <div>Advanced Search</div>
-        <div id="Advanced">
-            <datalist id="info">
-                <optgroup label="Floors">
-                    <option>6th Floor</option>
-                    <option>7th Floor</option>
-                    <option>8th Floor</option>
-                    <option>9th Floor</option>
-                </optgroup>
-                <optgroup label="Subjects">
-                    <option>History</option>
-                    <option>Science</option>
-                    <option>Arts</option>
-                </optgroup>
-            </datalist>
-            <input  autoComplete="on" list="info"/> 
+        <br>
+        <div id="MainArea">
+            <div id="ButtonArea">
+                <br><br><br><br>
+                 <button type="button" id="ButtonCSS" style="background-color: green;">Floor 7-Mezzanine</button> 
+                 <button type="button" id="ButtonCSS" style="background-color: indianred;">Floor 8</button> 
+                 <button type="button" id="ButtonCSS" style="background-color: indianred;">Floor 8-Mezzanine</button> 
+                 <button type="button" id="ButtonCSS" style="background-color: skyblue;">Floor 10-Mezzanine</button> 
+            </div>
+            <div id="MapArea">
+                <h1 style="vertical-align: middle; line-height: 575px;text-align: center;font-size: 50px;">MAP</h1>
+            </div>
+            <div id="RightTabDisplay">
+                <div id="SearchArea">
+                    <div id="Basic">
+                        <p2>Basic Search   </p2>
+                        <datalist id="location">
+                            <optgroup label="Shelves">
+                                <option>Shelf 1</option>
+                                <option>Shelf 2</option>
+                                <option>Shelf 3</option>
+                                <option>Shelf 4</option>
+                                <option>Shelf 5</option>
+                                <option>etc.</option>
+                            </optgroup>
+                        </datalist>
+                        <input  autoComplete="on" list="location" id="List"/> 
+                    </div>
+                    <!-- Advanced Search -->
+                    <div id="Advanced">
+                        <p2>Advanced Search</p2>
+                        <datalist id="info">
+                            <optgroup label="Floors">
+                                <option>6th Floor</option>
+                                <option>7th Floor</option>
+                                <option>8th Floor</option>
+                                <option>9th Floor</option>
+                            </optgroup>
+                            <optgroup label="Subjects">
+                                <option>History</option>
+                                <option>Science</option>
+                                <option>Arts</option>
+                            </optgroup>
+                        </datalist>
+                        <input  autoComplete="on" list="info"/> 
+                    </div>
+                    <button type="button" id="FilterCSS">Filter</button> 
+                </div>
+                <div id="DirectoryDisplay">
+                    <table>
+                        <tr>
+                            <th>Shelves</th>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                        </tr>
+                    </table>
+                    
+                    <br>
+                    
+                    <table>
+                        <tr>
+                            <th>Discussion Rooms</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </body>
 </html>
