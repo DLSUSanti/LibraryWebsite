@@ -25,16 +25,11 @@ app.get("/", (req,res)=>{
 })
 
 app.post("/floorChange7M", (req,res)=>{
-    Shelve.find({location:"7th floor Mezzanine"}, function(err, docs){
-    if(err){
-        res.send(err)
-    }
-    else{
+    Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
         res.render("home.hbs",{
-            data: docs
-        }
-    }
-})
+            data: shelves
+        })
+    })
 })
 
 app.set('port', (process.env.PORT || 3000))
