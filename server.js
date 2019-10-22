@@ -21,7 +21,7 @@ app.use(express.static(__dirname + "/public"))
 const Shelve = require("./models/database.js").Shelve
 
 app.get("/", (req,res)=>{
-    res.render("/views/home.hbs")
+    res.render("views/home.hbs")
 })
 
 app.post("/floorChange7M", (req,res)=>{
