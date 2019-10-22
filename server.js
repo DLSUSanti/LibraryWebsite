@@ -22,6 +22,7 @@ const Shelve = require("./models/database.js").Shelve
 
 app.get("/", (req,res)=>{
      Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
+         
         res.render("home.hbs",{
             location: "7th Floor Mezzanine",
             data: shelves
