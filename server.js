@@ -31,6 +31,7 @@ app.get("/", (req,res)=>{
 
 app.post("/floorChange", (req,res)=>{
     var floor = req.body.fl
+    console.log(floor)
     Shelve.find({location:floor}).exec(function(err,shelves){
         res.render("home.hbs",{
             location: req.body.fl,
