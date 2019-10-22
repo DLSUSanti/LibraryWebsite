@@ -21,11 +21,39 @@ app.use(express.static(__dirname + "/public"))
 const Shelve = require("./models/database.js").Shelve
 
 app.get("/", (req,res)=>{
-    res.render("home.hbs")
+     Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            data: shelves
+        })
+    })
 })
 
 app.post("/floorChange7M", (req,res)=>{
     Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            data: shelves
+        })
+    })
+})
+
+app.post("/floorChange8", (req,res)=>{
+    Shelve.find({location:"8th floor"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            data: shelves
+        })
+    })
+})
+
+app.post("/floorChange8M", (req,res)=>{
+    Shelve.find({location:"8th floor Mezzanine"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            data: shelves
+        })
+    })
+})
+
+app.post("/floorChange10M", (req,res)=>{
+    Shelve.find({location:"10th floor Mezzanine"}).exec(function(err,shelves){
         res.render("home.hbs",{
             data: shelves
         })
