@@ -100,16 +100,28 @@
                 border-style:solid;
                 background-color: darkseagreen;
             }
-            table, td,tr{
+            th{
+                color: white;
+                padding: 5px;
+                font-size: 40px;
                 text-align: center;
-                width: inherit;
-                border: 1px solid black;
-                overflow-y: hidden;
+                background-color:gray;
+                
+            }
+            
+            td{
+                background-color:beige;
+                text-align: center;
+                
+            }
+            thead{
+                display:block;
+                width:inherit;
             }
             tbody{
-                height:100px;
+                height:200px;
+                
                 display:inline-block;
-                width: inherit;
                 overflow: auto;
             }
         </style>
@@ -186,33 +198,21 @@
                     <button type="button" id="FilterCSS">Filter</button> 
                 </div>
                 <div id="DirectoryDisplay">
-                    {{location}}
-                    <table>
+                    <h1 style="text-align: center">{{location}}</h1>
+                    <table style="text-align: center; width: 100%;">
                         <tr>
                             <th>Shelves</th>
                         </tr>
                         {{#each data}}
                             <tr>
                                 <td >
-                                    Working
+                                    {{shelf_number}}
                                 </td>
                             </tr>
                         {{/each}}
                     </table>
                     
                     <br>
-                    
-                    <table>
-                        <tr>
-                            <th>Discussion Rooms</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
