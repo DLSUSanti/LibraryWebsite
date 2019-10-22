@@ -29,37 +29,10 @@ app.get("/", (req,res)=>{
     })
 })
 
-app.post("/floorChange7M", (req,res)=>{
-    Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
+app.post("/floorChange", (req,res)=>{
+    Shelve.find({location:req.session.floor}).exec(function(err,shelves){
         res.render("home.hbs",{
-            location: "7th Floor Mezzanine",
-            data: shelves
-        })
-    })
-})
-
-app.post("/floorChange8", (req,res)=>{
-    Shelve.find({location:"8th Floor"}).exec(function(err,shelves){
-        res.render("home.hbs",{
-            location: "8th Floor",
-            data: shelves
-        })
-    })
-})
-
-app.post("/floorChange8M", (req,res)=>{
-    Shelve.find({location:"8th Floor Mezzanine"}).exec(function(err,shelves){
-        res.render("home.hbs",{
-            location: "8th Floor Mezzanine",
-            data: shelves
-        })
-    })
-})
-
-app.post("/floorChange10M", (req,res)=>{
-    Shelve.find({location:"10th Floor Mezzanine"}).exec(function(err,shelves){
-        res.render("home.hbs",{
-            location: "10th Floor Mezzanine",
+            location: req.session.floor,
             data: shelves
         })
     })
