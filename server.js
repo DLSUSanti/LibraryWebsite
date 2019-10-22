@@ -24,7 +24,7 @@ app.get("/", (req,res)=>{
     res.render("home.hbs")
 })
 
-app.get("/floorChange7M", (req,res)=>{
+app.post("/floorChange7M", (req,res)=>{
     Shelve.find({location:"7th floor Mezzanine"}, function(err, docs){
     if(err){
         res.send(err)
