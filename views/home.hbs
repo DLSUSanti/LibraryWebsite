@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <style>
@@ -46,8 +45,13 @@
                 display: inline-block;
                 font-size: 16px;
                 margin-bottom: 5px;
+                border-radius: 100px;
             }
             #MapArea{
+                background-image: url(71474412_398192217540257_9018590216679587840_n%20copy.png);
+                background-size:contain;
+                background-repeat: no-repeat;
+                background-position: center;
                 background-color: cadetblue;
                 width: 750px;
                 margin-left: 50px;
@@ -102,6 +106,12 @@
                 border: 1px solid black;
             }
         </style>
+        
+        <script>
+            function changePicture(){
+                document.getElementById("MapArea").style.backgroundImage = "url(GuidedMap_1.png)";
+            }
+        </script>
     </head>
     
     <body>
@@ -121,7 +131,7 @@
                  <button type="button" id="ButtonCSS" style="background-color: skyblue;">Floor 10-Mezzanine</button> 
             </div>
             <div id="MapArea">
-                <h1 style="vertical-align: middle; line-height: 575px;text-align: center;font-size: 50px;">MAP</h1>
+               
             </div>
             <div id="RightTabDisplay">
                 <div id="SearchArea">
@@ -160,16 +170,23 @@
                     <button type="button" id="FilterCSS">Filter</button> 
                 </div>
                 <div id="DirectoryDisplay">
+                    <h1 style="text-align: center;">{{location}}</h1>
+                    
                     <table>
                         <tr>
                             <th>Shelves</th>
                         </tr>
-                        <tr>
-                            <td>7</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                        </tr>
+                        {{#each data}}
+                            <tr>
+                                <td >
+                                    <form id="Floor" action="floorChange" method="post" style="display:inline">
+                                         <input type="hidden" name="shelfnumber" id="shelfnumber" value="{{shelf_number}}">
+                                        <input type="submit" value="{{shelf_number}}">
+                                    </form>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    
                     </table>
                     
                     <br>
