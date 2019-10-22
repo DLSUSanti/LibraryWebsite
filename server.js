@@ -36,7 +36,8 @@ app.post("/7th-Floor-Mezzanine", (req,res)=>{
             data: shelves
         })
     })
-    })
+})
+
 app.post("/8th-Floor", (req,res)=>{
     Shelve.find({location:"8th Floor"}).exec(function(err,shelves){
         res.render("home.hbs",{
@@ -44,7 +45,8 @@ app.post("/8th-Floor", (req,res)=>{
             data: shelves
         })
     })
-    })
+})
+
 app.post("/8th-Floor-Mezzanine", (req,res)=>{
     Shelve.find({location:"8th Floor Mezzanine"}).exec(function(err,shelves){
         res.render("home.hbs",{
@@ -52,7 +54,8 @@ app.post("/8th-Floor-Mezzanine", (req,res)=>{
             data: shelves
         })
     })
-    })
+})
+
 app.post("/10th-Floor-Mezzanine", (req,res)=>{
     Shelve.find({location:"10th Floor Mezzanine"}).exec(function(err,shelves){
         res.render("home.hbs",{
@@ -60,7 +63,7 @@ app.post("/10th-Floor-Mezzanine", (req,res)=>{
             data: shelves
         })
     })
-    })
+})
 
 
 app.set('port', (process.env.PORT || 3000))
