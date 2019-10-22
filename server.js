@@ -24,6 +24,21 @@ app.get("/", (req,res)=>{
     res.render("home.hbs")
 })
 
+
+app.get("/floorChange", (req,res)=>{
+    var floor = req.session.shelfnumber
+    Shelve.find({location:floor}, function(err, docs){
+    if(err){
+        res.send(err)
+    }
+    else{
+        res.render("home.hbs",{
+            data: docs
+        }
+    }
+})
+})
+
 app.set('port', (process.env.PORT || 3000))
 
 app.listen(app.get('port'), ()=>{
