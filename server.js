@@ -21,8 +21,54 @@ app.use(express.static(__dirname + "/public"))
 const Shelve = require("./models/database.js").Shelve
 
 app.get("/", (req,res)=>{
-    res.render("home.hbs")
+     Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            location: "7th Floor Mezzanine",
+            data: shelves
+        })
+    })
 })
+
+app.post("/7th-Floor-Mezzanine", (req,res)=>{
+    Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            location: "7th Floor Mezzanine",
+            data: shelves
+        })
+    })
+})
+
+app.post("/8th-Floor", (req,res)=>{
+    Shelve.find({location:"8th Floor"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            location: "8th Floor",
+            data: shelves
+        })
+    })
+})
+
+app.post("/8th-Floor-Mezzanine", (req,res)=>{
+    Shelve.find({location:"8th Floor Mezzanine"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            location: "8th Floor Mezzanine",
+            data: shelves
+        })
+    })
+})
+
+app.post("/10th-Floor-Mezzanine", (req,res)=>{
+    Shelve.find({location:"10th Floor Mezzanine"}).exec(function(err,shelves){
+        res.render("home.hbs",{
+            location: "10th Floor Mezzanine",
+            data: shelves
+        })
+    })
+})
+
+app.post("/SearchShelf", (req,res)=>{
+
+})
+
 
 app.set('port', (process.env.PORT || 3000))
 

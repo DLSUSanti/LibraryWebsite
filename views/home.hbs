@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <head>
         <style>
@@ -46,8 +45,13 @@
                 display: inline-block;
                 font-size: 16px;
                 margin-bottom: 5px;
+                border-radius: 100px;
             }
             #MapArea{
+                background-image: url(71474412_398192217540257_9018590216679587840_n%20copy.png);
+                background-size:contain;
+                background-repeat: no-repeat;
+                background-position: center;
                 background-color: cadetblue;
                 width: 750px;
                 margin-left: 50px;
@@ -96,12 +100,44 @@
                 border-style:solid;
                 background-color: darkseagreen;
             }
-            table, td,tr{
+            #ShelfCSS{
+                border: none;
                 text-align: center;
-                width: inherit;
-                border: 1px solid black;
+                width: 100%;
+                height: 100%;
+                font-size: 16px;
+            }
+            th{
+                color: white;
+                padding: 5px;
+                font-size: 40px;
+                text-align: center;
+                background-color:gray;
+                
+            }
+            
+            td{
+                background-color:beige;
+                text-align: center;
+                
+            }
+            thead{
+                display:block;
+                width:inherit;
+            }
+            tbody{
+                height:200px;
+                
+                display:inline-block;
+                overflow: auto;
             }
         </style>
+        
+        <script>
+            function changePicture(){
+                document.getElementById("MapArea").style.backgroundImage = "url(GuidedMap_1.png)";
+            }
+        </script>
     </head>
     
     <body>
@@ -115,13 +151,22 @@
         <div id="MainArea">
             <div id="ButtonArea">
                 <br><br><br><br>
-                 <button type="button" id="ButtonCSS" style="background-color: green;">Floor 7-Mezzanine</button> 
-                 <button type="button" id="ButtonCSS" style="background-color: indianred;">Floor 8</button> 
-                 <button type="button" id="ButtonCSS" style="background-color: indianred;">Floor 8-Mezzanine</button> 
-                 <button type="button" id="ButtonCSS" style="background-color: skyblue;">Floor 10-Mezzanine</button> 
+                
+                <form id="Floor" action="7th-Floor-Mezzanine" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color: green;" value="Floor 7-Mezzanine">
+                </form>
+                <form id="Floor" action="8th-Floor" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color:indianred;" value="Floor 8">
+                </form>
+                <form id="Floor" action="8th-Floor-Mezzanine" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color: indianred;" value="Floor 8-Mezzanine">
+                </form>
+                <form id="Floor" action="10th-Floor-Mezzanine" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color: skyblue;" value="Floor 10-Mezzanine">
+                </form>
             </div>
             <div id="MapArea">
-                <h1 style="vertical-align: middle; line-height: 575px;text-align: center;font-size: 50px;">MAP</h1>
+               
             </div>
             <div id="RightTabDisplay">
                 <div id="SearchArea">
@@ -146,31 +191,21 @@
                     
                 </div>
                 <div id="DirectoryDisplay">
-                    <table>
+                    <h1 style="text-align: center">{{location}}</h1>
+                    <table style="text-align: center; width: 100%;">
                         <tr>
                             <th>Shelves</th>
                         </tr>
-                        <tr>
-                            <td>7</td>
-                        </tr>
-                        <tr>
-                            <td>8</td>
-                        </tr>
+                        {{#each data}}
+                            <tr>
+                                <td >
+                                    <input type="button" id="ShelfCSS" onclick="changePicture()" value="{{shelf_number}}">
+                                </td>
+                            </tr>
+                        {{/each}}
                     </table>
                     
                     <br>
-                    
-                    <table>
-                        <tr>
-                            <th>Discussion Rooms</th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
