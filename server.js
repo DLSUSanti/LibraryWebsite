@@ -30,9 +30,10 @@ app.get("/", (req,res)=>{
 })
 
 app.post("/floorChange", (req,res)=>{
-    Shelve.find({location:req.body.floor}).exec(function(err,shelves){
+    var floor = req.body.floor
+    Shelve.find({location:floor}).exec(function(err,shelves){
         res.render("home.hbs",{
-            location: req.session.floor,
+            location: req.body.floor,
             data: shelves
         })
     })
