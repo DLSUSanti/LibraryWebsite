@@ -125,10 +125,19 @@
         <div id="MainArea">
             <div id="ButtonArea">
                 <br><br><br><br>
-                 <button type="button" id="ButtonCSS" style="background-color: green;">Floor 7-Mezzanine</button> 
-                 <button type="button" id="ButtonCSS" style="background-color: indianred;">Floor 8</button> 
-                 <button type="button" id="ButtonCSS" style="background-color: indianred;">Floor 8-Mezzanine</button> 
-                 <button type="button" id="ButtonCSS" style="background-color: skyblue;">Floor 10-Mezzanine</button> 
+                
+                <form id="Floor" action="floorChange7M" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color: green;" value="Floor 7-Mezzanine">
+                </form>
+                <form id="Floor" action="floorChange8" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color:indianred;" value="Floor 8">
+                </form>
+                <form id="Floor" action="floorChange8M" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color: indianred;" value="Floor 8-Mezzanine">
+                </form>
+                <form id="Floor" action="floorChange10M" method="post" style="display:inline">
+                    <input type="submit" id="ButtonCSS" style="background-color: skyblue;" value="Floor 10-Mezzanine">
+                </form>
             </div>
             <div id="MapArea">
                
@@ -179,10 +188,7 @@
                         {{#each data}}
                             <tr>
                                 <td >
-                                    <form id="Floor" action="floorChange" method="post" style="display:inline">
-                                         <input type="hidden" name="shelfnumber" id="shelfnumber" value="{{shelf_number}}">
-                                        <input type="submit" value="{{shelf_number}}">
-                                    </form>
+                                    Hello
                                 </td>
                             </tr>
                         {{/each}}
