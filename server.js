@@ -21,16 +21,7 @@ app.use(express.static(__dirname + "/public"))
 const Shelve = require("./models/database.js").Shelve
 
 app.get("/", (req,res)=>{
-   Shelve.find({location:"7th floor Mezzanine"}, function(err, docs){
-    if(err){
-        res.send(err)
-    }
-    else{
-        res.render("home.hbs",{
-            data: docs
-        }
-    }
-})
+    res.render("home.hbs")
 })
 
 app.get("/floorChange7M", (req,res)=>{
