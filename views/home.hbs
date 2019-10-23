@@ -90,7 +90,7 @@
             }
             #SearchArea{
                 width: inherit;
-                height: 100px;
+                height: 110px;
                 display: block;
             }
             #DirectoryDisplay{
@@ -130,9 +130,10 @@
             th{
                 color: white;
                 padding: 5px;
-                font-size: 20px;
+                font-size: 40px;
                 text-align: center;
-                background-color:darkgreen;
+                background-color:darkseagreen;
+                
             }
             
             td{
@@ -151,9 +152,13 @@
                 overflow-y: scroll;
             }
             #scrolltable{
-                margin: 0;
+                margin-top: 20px;
                 height: 200px;
                 overflow: auto;
+            }
+            #scrolltable th div{
+                position: absolute;
+                margin-top: -20px;
             }
         </style>
         
@@ -203,13 +208,11 @@
                 </div>
                 <div id="DirectoryDisplay">
                     <h1 style="text-align: center">{{location}}</h1>
-                    <table style="text-align: center; width: 100%;">
-                            <tr>
-                                <th>SHELVES</th>
-                            </tr>
-                        </table>
                     <div id="scrolltable">
                         <table style="text-align: center; width: 100%;">
+                            <tr>
+                                <th>Shelves</th>
+                            </tr>
                             {{#each data}}
                                 <tr>
                                     <td>
