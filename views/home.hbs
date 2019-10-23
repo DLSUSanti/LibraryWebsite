@@ -130,9 +130,9 @@
             th{
                 color: white;
                 padding: 5px;
-                font-size: 40px;
+                font-size: 20px;
                 text-align: center;
-                background-color:darkseagreen;
+                background-color:darkgreen;
                 
             }
             
@@ -208,11 +208,13 @@
                 </div>
                 <div id="DirectoryDisplay">
                     <h1 style="text-align: center">{{location}}</h1>
+                    <table style="text-align: center; width: 100%;">
+                        <tr>
+                            <th>SHELVES</th>
+                        </tr>
+                    </table>
                     <div id="scrolltable">
                         <table style="text-align: center; width: 100%;">
-                            <tr>
-                                <th>Shelves</th>
-                            </tr>
                             {{#each data}}
                                 <tr>
                                     <td>
