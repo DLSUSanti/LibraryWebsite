@@ -126,6 +126,9 @@
                 font-size: 16px;
                 background-color: darkseagreen;
             }
+            #floor{
+                width: fill;
+            }
             th{
                 color: white;
                 padding: 5px;
@@ -141,14 +144,23 @@
                 
             }
             thead{
-                display:block;
+                /*display:block;*/
                 width:inherit;
             }
             tbody{
-                height:200px;
+                max-height: 200px;
                 
-                display:inline-block;
+                /*display:inline-block;*/
+                overflow-y: scroll;
+            }
+            #scrolltable{
+                margin-top: 20px;
+                height: 200px;
                 overflow: auto;
+            }
+            #scrolltable th div{
+                position: absolute;
+                margin-top: -20px;
             }
         </style>
         
@@ -198,19 +210,20 @@
                 </div>
                 <div id="DirectoryDisplay">
                     <h1 style="text-align: center">{{location}}</h1>
-                    <table style="text-align: center; width: 100%;">
-                        <tr>
-                            <th>Shelves</th>
-                        </tr>
-                        {{#each data}}
+                    <div id="scrolltable">
+                        <table style="text-align: center; width: 100%;">
                             <tr>
-                                <td>
-                                    <input type="button" id="ShelfCSS" onclick="changePicture()" value="{{shelf_number}}">
-                                </td>
+                                <th>Shelves</th>
                             </tr>
-                        {{/each}}
-                    </table>
-                    
+                            {{#each data}}
+                                <tr>
+                                    <td>
+                                        <input type="button" id="ShelfCSS" onclick="changePicture()" value="{{shelf_number}}">
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        </table>
+                    </div>
                     <br>
                 </div>
             </div>
