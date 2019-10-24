@@ -177,11 +177,19 @@
                 var location = "{{location}}";
                 if(location == "8th Floor"){
                     document.getElementById("MapArea").style.backgroundImage = "url(71474412_398192217540257_9018590216679587840_n%20copy.png)";
-                    document.getElementById("Drt").style.display = "block";
                 }
                 else{
                     document.getElementById("MapArea").style.backgroundImage = "url(8thFloorMezz.JPG)";
-                      document.getElementById("Drt").style.display = "none";
+                }
+                
+                
+                if(location == "8th Floor"){
+                    console.log("8thFloor);
+                    document.getElementById("Drt").style.display = "block";
+                }
+                else{
+                    console.log("8thFloor);
+                    document.getElementById("Drt").style.display = "none";
                 }
             }
         </script>
