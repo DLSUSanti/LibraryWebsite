@@ -3,7 +3,33 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+        </script>
+        <script type="text/javascript">
+            $(document).ready(()=>{
+                console.log('ready');
+                $('#basicButton').click(()=>{
+                    console.log('basic search on ' + new Date());
+                    
+                    $.ajax({
+                        url: '/SearchShelf/' + $('#basicquery').val(),
+                        type: 'GET',
+                        data: {
+                            basicquery: $('#basicquery').val()
+                        },
+                        dataType: 'json',
+                        success: (response) => {
+                            $(".result").remove();
+                            response.forEach((data)=>{
+                                $('#basicresults').append('<div id = "' + data._id + '" class="result">' + 
+                                                          data.shelf_number + 
+                                                          '</div>');
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
         <style>
             html{
                 width: 100%;
@@ -320,10 +346,10 @@
                         <h4 class="modal-title">Basic Search</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="basicsearch" action="SearchShelf" method="post">
-                            <input type="text" name="basicquery" placeholder="Search text...">
-                            <input type="submit" value="Search">
-                        </form>
+                         <input type="text" id="basicquery" placeholder="Search text...">
+                        <input id="basicButton" type="button" value="Search">
+                        <br><br>
+                        <div id="basicresults"></div>
                     </div>
                 </div>
                 
@@ -339,20 +365,20 @@
                         <h4 class="modal-title">Advanced Search</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="advsearch" action="SearchShelfAdv" method="post">
-                            <input type="text" name="basicquery" placeholder="Location...">
-                            <select>
-                                <option>AND</option>
-                                <option>OR</option>
-                            </select><br>
-                            <input type="text" name="basicquery" placeholder="Subject Name...">
-                            <select>
-                                <option>AND</option>
-                                <option>OR</option>
-                            </select><br>
-                            <input type="text" name="basicquery" placeholder="Section..."><br>
-                            <input type="submit" value="Search">
-                        </form>
+                        <input type="text" id="advancedquery" placeholder="Location...">
+                        <select>
+                            <option>AND</option>
+                            <option>OR</option>
+                        </select><br>
+                        <input type="text" id="advancedquery2" placeholder="Subject Name...">
+                        <select>
+                            <option>AND</option>
+                            <option>OR</option>
+                        </select><br>
+                        <input type="text" id="advancedquery3" placeholder="Section..."><br>
+                        <input id="advancedButton" type="button" value="Search">
+                        <br><br>
+                        <div id="advancedresults"></div>
                     </div>
                 </div>
                 

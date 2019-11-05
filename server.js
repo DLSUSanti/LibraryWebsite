@@ -66,14 +66,15 @@ app.post("/10th-Floor-Mezzanine", (req,res)=>{
     })
 })
 
-app.post("/SearchShelf", urlencoder, (req,res)=>{
+app.get("/SearchShelf/:basicquery", urlencoder, (req,res)=>{
     console.log("searching")
-    var query = req.body.basicquery
+    var query = req.params.basicquery
+    console.log(query)
     var exp = new RegExp(query, 'i')
     console.log(exp)
     
     Shelve.find({$or:[{subject_names: exp}, {subject_codes: exp}, {location: exp}, {section: exp}]}).exec(function(err,results){
-        console.log(results)
+        res.send(results);
     })
 })
 
