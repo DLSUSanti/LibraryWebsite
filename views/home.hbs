@@ -35,6 +35,37 @@
                         }
                     });
                 });
+                $('#advancedButton').click(()=>{
+                    console.log('advanced search on ' + new Date());
+                    var boolean1 = $('#boolean1').val();
+                    var boolean2 = $('#boolean2').val();
+                    
+                    $.ajax({
+                        url: '/SearchShelfAdv/' + $('#advancedquery').val() + '/' + $('#advancedquery2').val() + '/' + $('#advancedquery3').val() + '/' + boolean1 + '/' + boolean2,
+                        type: 'GET',
+                        data: {
+                            advancedquery: $('#advancedquery').val(),
+                            advancedquery2: $('#advancedquery2').val(),
+                            advancedquery3: $('#advancedquery3').val()
+                        },
+                        dataType: 'json',
+                        success: (response) => {
+                            console.log(response);
+                            $(".result").remove();
+                            response.forEach((data)=>{
+                                $('#advancedresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
+                                                          '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
+                                                          '<span id="buttonholder">' + '<button onclick="changePicture()" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
+                                                            '<div id="' + data._id + '" class="collapse expandinfo">' +
+                                                                '<div>' + data.subject_codes + '</div>' +
+                                                                '<div>' + data.subject_names + '</div>' +
+                                                            '</div>' +
+                                                          '</div>');
+                                
+                            });
+                        }
+                    });
+                });
             });
         </script>
         <style>
@@ -389,14 +420,14 @@
                     </div>
                     <div class="modal-body">
                         <input type="text" id="advancedquery" placeholder="Location...">
-                        <select>
-                            <option>AND</option>
-                            <option>OR</option>
+                        <select id="boolean1">
+                            <option value="and">AND</option>
+                            <option value="or">OR</option>
                         </select><br>
                         <input type="text" id="advancedquery2" placeholder="Subject Name...">
-                        <select>
-                            <option>AND</option>
-                            <option>OR</option>
+                        <select id="boolean2">
+                            <option value="and">AND</option>
+                            <option value="or">OR</option>
                         </select><br>
                         <input type="text" id="advancedquery3" placeholder="Section..."><br>
                         <input id="advancedButton" type="button" value="Search">

@@ -183,6 +183,9 @@ app.get("/SearchShelf/:basicquery", urlencoder, (req,res)=>{
     console.log(query)
     var exp = new RegExp(query, 'i')
     var num = parseInt(query)
+    if(Number.isNaN(num)){
+       num = -1
+    }
     console.log(exp)
     console.log(num)
     
@@ -191,18 +194,42 @@ app.get("/SearchShelf/:basicquery", urlencoder, (req,res)=>{
     })
 })
 
-app.get("/SearchShelfAdv/:basicquery", urlencoder, (req,res)=>{
+app.get("/SearchShelfAdv/:advancedquery/:advancedquery2/:advancedquery3/:boolean1/:boolean2", urlencoder, (req,res)=>{
     console.log("searching")
-    var query = req.params.basicquery
-    console.log(query)
+    var query = req.params.advancedquery
+    var query2 = req.params.advancedquery2
+    var query3 = req.params.advancedquery3
+    var boolean1 = req.params.boolean1
+    var boolean2 = req.params.boolean2
+    console.log(boolean1)
+    console.log(boolean2)
     var exp = new RegExp(query, 'i')
-    var num = parseInt(query)
+    var exp2 = new RegExp(query2, 'i')
+    var exp3 = new RegExp(query3, 'i')
     console.log(exp)
-    console.log(num)
+    console.log(exp2)
+    console.log(exp3)
     
-    Shelve.find({$or:[{subject_names: exp}, {subject_codes: exp}, {location: exp}, {section: exp}, {shelf_number: num}]}).exec(function(err,results){
-        res.send(results);
-    })
+    if(boolean1 == 'and' && boolean2 == 'and'){
+        Shelve.find({$and:[{location: exp}, {subject_names: exp2}, {section: exp3}]}).exec(function(err,results){
+            res.send(results);
+        })
+    }
+    if(boolean1 == 'or' && boolean2 == 'or'){
+        Shelve.find({$or:[{location: exp}, {subject_names: exp2}, {section: exp3}]}).exec(function(err,results){
+            res.send(results);
+        })
+    }
+    if(boolean1 == 'and' && boolean2 == 'or'){
+        Shelve.find({$or:[{$and:[{location: exp}, {subject_names: exp2}]}, {section: exp3}]}).exec(function(err,results){
+            res.send(results);
+        })
+    }
+    if(boolean1 == 'or' && boolean2 == 'and'){
+        Shelve.find({$or:[{location: exp}, {$and:[{subject_names: exp2}, {section: exp3}]}]}).exec(function(err,results){
+            res.send(results);
+        })
+    }
 })
 
 
