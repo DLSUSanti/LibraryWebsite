@@ -49,6 +49,7 @@ app.get("/", (req, res)=>{
     }
     
     res.render("login.hbs")
+    //res.render("home.hbs")
 })
 
 /*
@@ -181,9 +182,25 @@ app.get("/SearchShelf/:basicquery", urlencoder, (req,res)=>{
     var query = req.params.basicquery
     console.log(query)
     var exp = new RegExp(query, 'i')
+    var num = parseInt(query)
     console.log(exp)
+    console.log(num)
     
-    Shelve.find({$or:[{subject_names: exp}, {subject_codes: exp}, {location: exp}, {section: exp}]}).exec(function(err,results){
+    Shelve.find({$or:[{subject_names: exp}, {subject_codes: exp}, {location: exp}, {section: exp}, {shelf_number: num}]}).exec(function(err,results){
+        res.send(results);
+    })
+})
+
+app.get("/SearchShelfAdv/:basicquery", urlencoder, (req,res)=>{
+    console.log("searching")
+    var query = req.params.basicquery
+    console.log(query)
+    var exp = new RegExp(query, 'i')
+    var num = parseInt(query)
+    console.log(exp)
+    console.log(num)
+    
+    Shelve.find({$or:[{subject_names: exp}, {subject_codes: exp}, {location: exp}, {section: exp}, {shelf_number: num}]}).exec(function(err,results){
         res.send(results);
     })
 })

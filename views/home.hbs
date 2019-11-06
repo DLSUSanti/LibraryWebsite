@@ -26,9 +26,11 @@
                                                           '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
                                                           '<span id="buttonholder">' + '<button onclick="changePicture()" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
                                                             '<div id="' + data._id + '" class="collapse expandinfo">' +
-                                                                'content' +
+                                                                '<div>' + data.subject_codes + '</div>' +
+                                                                '<div>' + data.subject_names + '</div>' +
                                                             '</div>' +
                                                           '</div>');
+                                
                             });
                         }
                     });
@@ -45,7 +47,7 @@
                 min-height: 40px;
             }
             .expandinfo{
-                height: 40px;
+                min-height: 40px;
             }
             #shelfnumber{
                 font-size: 20px;
