@@ -28,8 +28,8 @@ app.use(cookieparser())
 
 app.get("/", (req, res)=>{
     if(!req.cookies["password_change"]){
-        res.cookie("password_change", "OneMinute", {
-            maxAge : 60000 // 60000 milliseconds = 1 minute.
+        res.cookie("password_change", "PasswordExpiration", {
+            maxAge : 300000 // 60000 milliseconds = 1 minute. 300000 = 5 minutes.
         })
         
         var password = generator.generate({
@@ -103,7 +103,7 @@ app.post("/login", urlencoder, (req, res)=>{
 app.get("/logout", (req, res)=>{
     if(!req.cookies["password_change"]){
         res.cookie("password_change", "OneMinute", {
-            maxAge : 60000 // 60000 milliseconds = 1 minute.
+            maxAge : 300000 // 60000 milliseconds = 1 minute. 300000 = 5 minutes.
         })
         
         var password = generator.generate({
