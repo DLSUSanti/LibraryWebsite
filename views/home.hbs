@@ -260,8 +260,7 @@
              window.addEventListener("load", displayFloorPlan)
             
             function changePicture(pictureURL){
-                var picture = pictureURL;
-                document.getElementById("MapArea").style.backgroundImage = "url(picture)";
+                document.getElementById("MapArea").style.backgroundImage = "url(" + pictureURL + ")";
             }
             
             function displayFloorPlan(){
