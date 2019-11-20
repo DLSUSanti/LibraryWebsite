@@ -41,6 +41,15 @@
                     console.log('advanced search on ' + new Date());
                     var boolean1 = $('#boolean1').val();
                     var boolean2 = $('#boolean2').val();
+                    if(!$('#advancedquery').val()){
+                        $('#advancedquery').val(' ')
+                    }
+                    if(!$('#advancedquery2').val()){
+                        $('#advancedquery2').val(' ')
+                    }
+                    if(!$('#advancedquery3').val()){
+                        $('#advancedquery3').val(' ')
+                    }
                     
                     $.ajax({
                         url: '/SearchShelfAdv/' + $('#advancedquery').val() + '/' + $('#advancedquery2').val() + '/' + $('#advancedquery3').val() + '/' + boolean1 + '/' + boolean2,
