@@ -269,8 +269,7 @@
              window.addEventListener("load", displayFloorPlan)
             
             function changePicture(pictureURL){
-                var picture = pictureURL;
-                document.getElementById("MapArea").style.backgroundImage = "url(picture)";
+                document.getElementById("MapArea").style.backgroundImage = "url(" + pictureURL + ")";
             }
             
             function displayFloorPlan(){
@@ -323,8 +322,9 @@
                 <form id="Floor" action="10th-Floor-Mezzanine" method="post" style="display:inline">
                     <input type="submit" id="ButtonCSS" style="background-color: skyblue;width: 200px;" value="Floor 10-Mezzanine">
                 </form>
+                <br><br><br><br><br><br><br><br>
                 <form id="Floor" action="admin" method="post" style="display:inline">
-                    <input type="submit" style="background: none; outline-color: transparent; border: none; padding: 0; color: white; margin-top: 154%; width: 200px" value="Admin Login">
+                    <input type="submit" style="background: none; outline-color: transparent; border: none; padding: 0; color: white;width: 200px" value="Admin Login">
                 </form>
             </div>
             <div id="MapArea">
@@ -353,7 +353,7 @@
                             {{#each data}}
                                 <tr>
                                     <td>
-                                        <input type="button" id="ShelfCSS" onclick="changePicture({{picture_location}})" value="{{shelf_number}} - {{section}}">
+                                        <input type="button" id="ShelfCSS" onclick="changePicture('{{picture_location}}')" value="{{shelf_number}} - {{section}}">
                                     </td>
                                 </tr>
                             {{/each}}
