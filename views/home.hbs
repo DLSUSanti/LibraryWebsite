@@ -22,15 +22,17 @@
                             console.log(response);
                             $(".result").remove();
                             response.forEach((data)=>{
+                                var names = data.subject_names;
+                                var codes = data.subject_codes;
                                 $('#basicresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
                                                           '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
                                                           '<span id="buttonholder">' + '<button onclick="changePicture()" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
                                                             '<div id="' + data._id + '" class="collapse expandinfo">' +
-                                                                '<div>' + data.subject_codes + '</div>' +
-                                                                '<div>' + data.subject_names + '</div>' +
                                                             '</div>' +
                                                           '</div>');
-                                
+                                for(var i = 0; i<names.length; i++){
+                                    $('#' + data._id).append('<div><span id="codeholder">' + codes[i] + '</span><span>' + names[i] + '</span></div>');
+                                }
                             });
                         }
                     });
@@ -53,15 +55,17 @@
                             console.log(response);
                             $(".result").remove();
                             response.forEach((data)=>{
+                                var names = data.subject_names;
+                                var codes = data.subject_codes;
                                 $('#advancedresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
                                                           '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
                                                           '<span id="buttonholder">' + '<button onclick="changePicture()" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
                                                             '<div id="' + data._id + '" class="collapse expandinfo">' +
-                                                                '<div>' + data.subject_codes + '</div>' +
-                                                                '<div>' + data.subject_names + '</div>' +
                                                             '</div>' +
                                                           '</div>');
-                                
+                                for(var i = 0; i<names.length; i++){
+                                    $('#' + data._id).append('<div><span id="codeholder">' + codes[i] + '</span><span>' + names[i] + '</span></div>');
+                                }
                             });
                         }
                     });
@@ -85,6 +89,10 @@
             }
             #buttonholder{
                 float: right;
+            }
+            #codeholder{
+                display: inline-block;
+                width: 50px;
             }
             .result:hover{
                 background-color:rgba(0,0,0, 0.2);
