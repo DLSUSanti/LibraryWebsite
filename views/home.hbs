@@ -259,8 +259,9 @@
         <script>
              window.addEventListener("load", displayFloorPlan)
             
-            function changePicture(){
-                document.getElementById("MapArea").style.backgroundImage = "url(GuidedMap_1.png)";
+            function changePicture(var p1){
+                var picture = p1;
+                document.getElementById("MapArea").style.backgroundImage = "url(picture)";
             }
             
             function displayFloorPlan(){
@@ -343,7 +344,7 @@
                             {{#each data}}
                                 <tr>
                                     <td>
-                                        <input type="button" id="ShelfCSS" onclick="changePicture()" value="{{shelf_number}} - {{section}}">
+                                        <input type="button" id="ShelfCSS" onclick="changePicture({{picture_location}})" value="{{shelf_number}} - {{section}}">
                                     </td>
                                 </tr>
                             {{/each}}
