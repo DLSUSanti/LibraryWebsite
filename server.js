@@ -31,6 +31,28 @@ app.get("/", (req,res)=>{
     })
 })
 
+app.post("/login", urlencoder, (req, res)=>{
+    let username = req.body.username;
+    let password = req.body.password;
+    
+    if(username != "admin" || password != "libraryadmin")
+        res.render("login.hbs", {
+            invalid_credentials: "Invalid username or password!"
+        })
+    
+    else{
+        res.render("admin.hbs")
+    }
+})
+
+app.post("/logout", (req, res)=>{
+    res.render("login.hbs")
+})
+
+app.post("/admin", (req, res)=>{
+    res.render("login.hbs")
+})
+
 app.post("/7th-Floor-Mezzanine", (req,res)=>{
     Shelve.find({location:"7th floor Mezzanine"}).exec(function(err,shelves){
         res.render("home.hbs",{
