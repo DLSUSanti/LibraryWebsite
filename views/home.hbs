@@ -271,29 +271,35 @@
             
             function changePicture(pictureURL){
                 document.getElementById("MapArea").style.backgroundImage = "url(" + pictureURL + ")";
+              
             }
             
             function displayFloorPlan(){
+
                 var location = "{{location}}";
                 if(location == "7th Floor Mezzanine"){
                     document.getElementById("MapArea").style.backgroundImage = "url(8thFloorMezz_DISPLAY.jpg)";
                     document.getElementById("Drt").style.display = "none";
                     document.getElementById("Drt2").style.display = "none";
+                    console.log("DISPLAY TEST - 7th Floor Mezz Display: TRUE");
                 }
                 if(location == "8th Floor"){
                     document.getElementById("MapArea").style.backgroundImage = "url(71474412_398192217540257_9018590216679587840_n%20copy.png)";
                     document.getElementById("Drt").style.display = "inline-table";
                     document.getElementById("Drt2").style.display = "inline-table";
+                    console.log("DISPLAY TEST - 8th Floor Display: TRUE");
                 }
                 else if(location == "8th Floor Mezzanine"){
                     document.getElementById("MapArea").style.backgroundImage = "url(8thFloorMezz_DISPLAY.jpg)";
                     document.getElementById("Drt").style.display = "none";
                     document.getElementById("Drt2").style.display = "none";
+                    console.log("DISPLAY TEST - 8th Floor Mezz Display: TRUE");
                 }
                 else if(location == "10th Floor Mezzanine"){
                     document.getElementById("MapArea").style.backgroundImage = "url(10thFloorMezz_DISPLAY.jpg)";
                     document.getElementById("Drt").style.display = "none";
                     document.getElementById("Drt2").style.display = "none";
+                    console.log("DISPLAY TEST - 10th Floor Mezz Display: TRUE");
                 }
             }
         </script>
