@@ -26,7 +26,7 @@
                                 var codes = data.subject_codes;
                                 $('#basicresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
                                                           '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
-                                                          '<span id="buttonholder">' + '<button onclick="changePicture()" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
+                                                          '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
                                                             '<div id="' + data._id + '" class="collapse expandinfo">' +
                                                             '</div>' +
                                                           '</div>');
@@ -68,7 +68,7 @@
                                 var codes = data.subject_codes;
                                 $('#advancedresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
                                                           '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
-                                                          '<span id="buttonholder">' + '<button onclick="changePicture()" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
+                                                          '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
                                                             '<div id="' + data._id + '" class="collapse expandinfo">' +
                                                             '</div>' +
                                                           '</div>');
@@ -271,6 +271,8 @@
             
             function changePicture(pictureURL){
                 document.getElementById("MapArea").style.backgroundImage = "url(" + pictureURL + ")";
+                $('#basicModal').modal('hide');
+                $('#advancedModal').modal('hide');
               
             }
             
