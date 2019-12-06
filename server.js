@@ -144,6 +144,18 @@ app.get("/SearchShelfAdv/:advancedquery/:advancedquery2/:advancedquery3/:boolean
     }
 })
 
+app.post("/getShelfInfo", urlencoder, (req, res) => {
+    var shelf_location = req.body.shelf_location;
+    
+    Shelve.findOne({picture_location:shelf_location}, function(err, doc){
+        if(err){
+            res.send(err)
+        }
+        else{
+            res.status(200).send(doc);
+        }
+    })
+});
 
 app.set('port', (process.env.PORT || 3000))
 

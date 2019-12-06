@@ -3,8 +3,7 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
-        </script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <script type="text/javascript">
             $(document).ready(()=>{
                 console.log('ready');
@@ -197,7 +196,32 @@
                 background-color: dimgray;
                 display: inline-table;
             }
-            #ShelfCSS{
+            #ShelfInformationDisplay{
+                height: inherit;
+                width: 100%;
+                margin-top: 15%;
+                border-color: gray;
+                border-style:solid;
+                background-color: dimgray;
+                display: inline-table;
+            }
+            #shelf_info_section{
+                outline: none;
+                text-align: center;
+                border-top: 1px solid black;
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+                font-size: 16px;
+                font-weight: bold;
+                background-color: #DDDDDD
+            }
+            #shelf_info_subjects{
+                text-align: left;
+                border: 1px solid black;
+                font-size: 16px;
+                background-color: #DDDDDD
+            }
+            .ShelfCSS{
                 border: none;
                 text-align: center;
                 width: 100%;
@@ -251,18 +275,21 @@
                 /*display:inline-block;*/
                 overflow-y: scroll;
             }
-            #scrolltable{
+            .scrolltable{
                 margin-top: 20px;
                 height: 200px;
                 overflow: auto;
             }
-            #scrolltable th div{
+            .scrolltable th div{
                 position: absolute;
                 margin-top: -20px;
             }
             #Drt{
                 text-align: center; 
                 width: 100%;
+            }
+            #ShelfInformationDisplay{
+                visibility: hidden;
             }
         </style>
         
@@ -273,7 +300,35 @@
                 document.getElementById("MapArea").style.backgroundImage = "url(" + pictureURL + ")";
                 $('#basicModal').modal('hide');
                 $('#advancedModal').modal('hide');
-              
+                
+                $.ajax({
+                    url: '/getShelfInfo',
+                    type: 'POST',
+                    cache: false, 
+                    data: { shelf_location : pictureURL }, 
+                    success: function(data){
+                        const nextLine = "<br>"
+                        var subjectString = "<b>Subjects:</b>" + nextLine
+                        
+                        for(var i = 0; i < data.subject_codes.length; i++){
+                            if(i != data.subject_codes.length - 1)
+                                subjectString = subjectString + data.subject_names[i] + " (" + data.subject_codes[i] + ")" + nextLine
+                            else
+                                subjectString = subjectString + data.subject_names[i] + " (" + data.subject_codes[i] + ")"
+                        }
+                        
+                        $("#shelf_info_number").text("Shelf #" + data.shelf_number)
+                        
+                        $("#shelf_info_section").val(data.section)
+                        
+                        $("#shelf_info_subjects").html(subjectString)
+                        
+                        $("#ShelfInformationDisplay").css("visibility", "visible");
+                    },
+                    error: function(jqXHR, textStatus, err){
+                        alert('text status '+textStatus+', err '+err)
+                    }
+                });
             }
             
             function displayFloorPlan(){
@@ -357,12 +412,14 @@
                             <th>SHELVES</th>
                         </tr>
                     </table>
-                    <div id="scrolltable">
+                    <div class="scrolltable">
                         <table style="text-align: center; width: 100%;">
                             {{#each data}}
                                 <tr>
                                     <td>
-                                        <input type="button" id="ShelfCSS" onclick="changePicture('{{picture_location}}')" value="{{shelf_number}} - {{section}}">
+                                        <form>
+                                            <input type="button" class="ShelfCSS" onclick="changePicture('{{picture_location}}')" value="{{shelf_number}} - {{section}}">
+                                        </form>
                                     </td>
                                 </tr>
                             {{/each}}
@@ -422,6 +479,29 @@
                                 </td>
                             </tr>
                     </table>
+                </div>
+                
+                <div id="ShelfInformationDisplay">
+                    <h1 style="text-align: center; color:white;">Shelf Information</h1>
+                    <table id = "shelf_info_table" style="text-align: center; width: 100%;">
+                        <tr>
+                            <th><span id = "shelf_info_number"></span></th>
+                        </tr>
+                    </table>
+                    <div id = "shelf_info_scrolltable" class="scrolltable">
+                        <table style="text-align: center; width: 100%;">                            
+                            <tr>
+                                <td>
+                                    <input id = "shelf_info_section" type = "text" class = "ShelfCSS" readonly>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id = "shelf_info_subjects"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
