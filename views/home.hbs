@@ -23,14 +23,25 @@
                             response.forEach((data)=>{
                                 var names = data.subject_names;
                                 var codes = data.subject_codes;
-                                $('#basicresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
-                                                          '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
-                                                          '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
-                                                            '<div id="' + data._id + '" class="collapse expandinfo">' +
-                                                            '</div>' +
-                                                          '</div>');
-                                for(var i = 0; i<names.length; i++){
-                                    $('#' + data._id).append('<div><span id="codeholder">' + codes[i] + '</span><span>' + names[i] + '</span></div>');
+                                if(data.shelf_number !=0){
+                                    $('#basicresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
+                                                              '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
+                                                              '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
+                                                                '<div id="' + data._id + '" class="collapse expandinfo">' +
+                                                                '</div>' +
+                                                              '</div>');
+                                    for(var i = 0; i<names.length; i++){
+                                        $('#' + data._id).append('<div><span id="codeholder">' + codes[i] + '</span><span>' + names[i] + '</span></div>');
+                                    }
+                                }
+                                else{
+                                    $('#basicresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
+                                                              '<span id="shelfnumber">' + data.section + '</span>' + 
+                                                              '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
+                                                                '<div id="' + data._id + '" class="collapse expandinfo">' +
+                                                                '<div>' + data.section + ': located in ' + data.location + '<div>' +
+                                                                '</div>' +
+                                                              '</div>');
                                 }
                             });
                         }
@@ -65,14 +76,25 @@
                             response.forEach((data)=>{
                                 var names = data.subject_names;
                                 var codes = data.subject_codes;
-                                $('#advancedresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
-                                                          '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
-                                                          '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
-                                                            '<div id="' + data._id + '" class="collapse expandinfo">' +
-                                                            '</div>' +
-                                                          '</div>');
-                                for(var i = 0; i<names.length; i++){
-                                    $('#' + data._id).append('<div><span id="codeholder">' + codes[i] + '</span><span>' + names[i] + '</span></div>');
+                                if(data.shelf_number!=0){
+                                    $('#advancedresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
+                                                              '<span id="shelfnumber">' + 'Shelf ' + data.shelf_number + '</span>' + 
+                                                              '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
+                                                                '<div id="' + data._id + '" class="collapse expandinfo">' +
+                                                                '</div>' +
+                                                              '</div>');
+                                    for(var i = 0; i<names.length; i++){
+                                        $('#' + data._id).append('<div><span id="codeholder">' + codes[i] + '</span><span>' + names[i] + '</span></div>');
+                                    }
+                                }
+                                else{
+                                    $('#advancedresults').append('<div class="result" data-toggle="collapse" href="#' + data._id + '">' + 
+                                                              '<span id="shelfnumber">' + data.section + '</span>' + 
+                                                              '<span id="buttonholder">' + '<button onclick="changePicture(\'' + data.picture_location + '\')" class="btn btn-success" value="' + data.shelf_number + '">GO</button>' + '</span>' + 
+                                                                '<div id="' + data._id + '" class="collapse expandinfo">' +
+                                                                '<div>' + data.section + ': located in ' + data.location + '<div>' +
+                                                                '</div>' +
+                                                              '</div>');
                                 }
                             });
                         }
