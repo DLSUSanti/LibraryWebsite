@@ -357,13 +357,13 @@
 
                 var location = "{{location}}";
                 if(location == "7th Floor Mezzanine"){
-                    document.getElementById("MapArea").style.backgroundImage = "url(8thFloorMezz_DISPLAY.jpg)";
+                    document.getElementById("MapArea").style.backgroundImage = "url(7thFloorMezz_DISPLAY.jpg)";
                     document.getElementById("Drt").style.display = "none";
                     document.getElementById("Drt2").style.display = "none";
                     console.log("DISPLAY TEST - 7th Floor Mezz Display: TRUE");
                 }
                 if(location == "8th Floor"){
-                    document.getElementById("MapArea").style.backgroundImage = "url(71474412_398192217540257_9018590216679587840_n%20copy.png)";
+                    document.getElementById("MapArea").style.backgroundImage = "url(8thFloor_DISPLAY.jpg)";
                     document.getElementById("Drt").style.display = "inline-table";
                     document.getElementById("Drt2").style.display = "inline-table";
                     console.log("DISPLAY TEST - 8th Floor Display: TRUE");
@@ -379,6 +379,34 @@
                     document.getElementById("Drt").style.display = "none";
                     document.getElementById("Drt2").style.display = "none";
                     console.log("DISPLAY TEST - 10th Floor Mezz Display: TRUE");
+                }
+            }
+            
+             function discussionRoom(room){
+                var n = room;
+                if(n == "8A"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8A.jpg)";
+                }
+                else if(n == "8B"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8B.jpg)";
+                }
+                else if(n == "8C"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8C.jpg)";
+                }
+                else if(n == "8D"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8D.jpg)";
+                }
+                else if(n == "8E"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8E.jpg)";
+                }
+                else if(n == "8F"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8F.jpg)";
+                }
+                else if(n == "8G"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8G.jpg)";
+                }
+                else if(n == "8H"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8H.jpg)";
                 }
             }
         </script>
@@ -434,51 +462,46 @@
                             <th>DISCUSSION ROOMS</th>
                         </tr>
                     </table>
-                    <table id="Drt2" style="text-align: center; width: 100%; display: block">
+                    <table id="Drt2" style="text-align: center; width: 100%; display: inherit">
                         
                             <tr>
                                 <td>
-                                    1
+                                    <input type="button" id="ShelfCSS" onclick="discussionRoom('8A')" value="8A" style="width:100%;">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    2
+                                    <input type="button" id="ShelfCSS" onclick="DiscussionRoom('8B')" value="8B" style="width:100%;">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    3
+                                    <input type="button" id="ShelfCSS" onclick="DiscussionRoom('8C')" value="8C" style="width:100%;">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    4
+                                    <input type="button" id="ShelfCSS" onclick="DiscussionRoom('8D')" value="8D" style="width:100%;">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    5
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom('8E')" value="8E" style="width:100%;">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    6
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom('8F')" value="8F" style="width:100%;">
                                 </td>                                
                             </tr>
                             <tr>
                                 <td>
-                                    7
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom('8G')" value="8G" style="width:100%;">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    8
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    9
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom('8H')" value="8H" style="width:100%;">
                                 </td>
                             </tr>
                     </table>
