@@ -381,6 +381,26 @@
                     console.log("DISPLAY TEST - 10th Floor Mezz Display: TRUE");
                 }
             }
+            
+             Function discussionRoom(room){
+                if(room == "8A"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8A.jpg)";
+                }else if(room == "8B"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8B.jpg)";
+                }else if(room == "8C"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8C.jpg)";
+                }else if(room == "8D"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8D.jpg)";
+                }else if(room == "8E"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8E.jpg)";
+                }else if(room == "8F"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8F.jpg)";
+                }else if(room == "8G"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8G.jpg)";
+                }else if(room == "8H"){
+                    document.getElementById("MapArea").style.backgroundImage = "url(Floor8_DiscussionRoom8H.jpg)";
+                }
+            }
         </script>
     </head>
     
@@ -438,47 +458,42 @@
                         
                             <tr>
                                 <td>
-                                    1
+                                    <input type="button" id="ShelfCSS" onclick="discussionRoom(8A)" value="8A">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    2
+                                    <input type="button" id="ShelfCSS" onclick="DiscussionRoom(8B)" value="8B">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    3
+                                    <input type="button" id="ShelfCSS" onclick="DiscussionRoom(8C)" value="8C">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    4
+                                    <input type="button" id="ShelfCSS" onclick="DiscussionRoom(8D)" value="8D">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    5
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom(8E)" value="8E">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    6
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom(8F))" value="8F">
                                 </td>                                
                             </tr>
                             <tr>
                                 <td>
-                                    7
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom(8G)" value="8G">
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    8
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    9
+                                    <input type="button" id="ShelfCSS"  onclick="DiscussionRoom(8H)" value="8H">
                                 </td>
                             </tr>
                     </table>
