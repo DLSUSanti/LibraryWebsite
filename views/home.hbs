@@ -552,7 +552,12 @@
                         <h4 class="modal-title">Advanced Search</h4>
                     </div>
                     <div class="modal-body">
-                        <input type="text" id="advancedquery" placeholder="Location...">
+                        <select id="advancedquery" style="width: 180px;">
+                            <option>7th Floor Mezzanine</option>
+                            <option>8th Floor</option>
+                            <option>8th Floor Mezzanine</option>
+                            <option>10th Floor Mezzanine</option>
+                        </select>
                         <select id="boolean1">
                             <option value="and">AND</option>
                             <option value="or">OR</option>
@@ -562,7 +567,10 @@
                             <option value="and">AND</option>
                             <option value="or">OR</option>
                         </select><br>
-                        <input type="text" id="advancedquery3" placeholder="Section..."><br>
+                        <select id="advancedquery3" style="width: 180px;">
+                            <option>Circulation</option>
+                            <option>Filipiniana Collection</option>
+                        </select><br>
                         <input id="advancedButton" type="button" value="Search">
                         <br><br>
                         <div id="advancedresults"></div>
